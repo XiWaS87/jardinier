@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,500,600,700&display=swap');
+body{
+    background-color: whitesmoke;
+}
+
+p{
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+}
+
+.example-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 20%;
+    left: 27%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px black solid;
+    border-radius: 5%;
+    padding: 15px;
+    width: 750px;
+    height: 500px;
+    background-color: rgb(223, 223, 223);
+    text-align: center;
+    box-shadow: 10px 5px 5px black;
+}
+
+.container{
+    display: block;
+    width: 250px;
+    height: 500px;
+    margin-top: 200px;
+}
+
+.nav-link{
+    text-decoration: none;
+    color: white;
+}
+
+.navbar-brand{
+    color: white;
+}
+
+input[type="radio"].demo1 {
+    display: none;
+  }
+  input[type="radio"].demo1 + label {
+    padding: 0.3rem 0.5rem;
+    border: 1px dashed #ccc;
+    margin-left: -23px;
+  }
+  input[type="radio"].demo1:checked + label {
+    border: 2px solid green;
+    border-radius: 5px;
+    background-color: #eee;
+    box-shadow: 0 0 5px green;
+  }
+
+input[type="text"], input[type="password"], input[type="email"]{
+    width: 200px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid black;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    font-size: 15px;
+}
+
+
+

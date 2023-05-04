@@ -4,8 +4,12 @@
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% block stylesheets %}
+            <link rel="stylesheet" href="{{asset("css/style.css")}}" type="text/css">
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
 
@@ -14,6 +18,54 @@
         {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+<nav class="navbar navbar-expand-lg " style="background-color:#008000;">
+  <a class="navbar-brand" href="#">Le p'tit j@rdinier</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{{path('app_acceuil')}}">Accueil</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{{ path('app_mesure') }}">Devis</a>
+      </li>
+      {% if is_granted('ROLE_ADMIN') %}
+      <li class="nav-item active">
+        <a class="nav-link" href="{{ path('app_haie_crud_index') }}">Afficher les haies</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{{path('app_haie_crud_new')}}">Ajouter une haie</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{{ path('app_devis_crud_index') }}">Afficher les devis</a>
+      </li>
+      {% endif %}
+      </ul>
+      <ul class="navbar-nav ms-auto">
+      {% if is_granted('ROLE_USER') %}
+      <li class="nav-item active">
+        <a class="nav-link">
+        {{ app.user.nom }}
+        {{ app.user.prenom }}
+        </a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{{ path('app_logout') }}">Deconnexion</a>
+      </li>
+      {% else %}
+      <li class="nav-item active">
+        <a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{{ path('app_choix') }}">Inscription</a>
+      </li>
+      {% endif %}
+      </ul>
+    </div>
+</nav>
+        {% block content %}{% endblock %}
     </body>
 </html>

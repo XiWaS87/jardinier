@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DevisController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+{% block content %}
+<div class="example-wrapper">
+<div class="container">
+    <h1>Devis :</h1>
+    {% set total = prix * longueur %}
+    {% if hauteur > 150 %}
+    {% set total = total * 1.5 %}
+    {% endif %}
+    {% if choix == "e" %}
+    {% set remise = total * 0.1 %}
+    <p>Vous avez une remise de {{remise}} €</p>
+    {% set total = total - remise %}
+    {% endif %}
+    <p>Le prix total est de {{total}} €</p>
+    <p>Nom de la haie : {{maHaie.getNom()}}</p>
+    <p>La longueur est de {{longueur}}</p>
+    <p>La hauteur est de {{hauteur}}</p>
+    <p>Le prix est de {{prix}}</p>
+    
+
+
+
+    {% if is_granted('ROLE_USER') %}
+    <a class="btn btn-primary" href="{{path('app_creation_devis')}}">Creer un devis</a>
+    {% else %}
+    <a class="btn btn-primary" href="{{path('app_login')}}">Connectez-vous pour créer un devis</a>
+    {% endif %}
+
+    
+    
+
+
+
+</div>
+</div>
+{% endblock %}
+{% endblock %}

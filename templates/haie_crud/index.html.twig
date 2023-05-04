@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Haie index{% endblock %}
+
+{% block content %}
+    <h1>Haie index</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col" >Code</th>
+                <th scope="col" >Nom</th>
+                <th scope="col" >Prix</th>
+                <th scope="col" >actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for haie in haies %}
+            <tr>
+                <td>{{ haie.code }}</td>
+                <td>{{ haie.nom }}</td>
+                <td>{{ haie.prix }}</td>
+                <td>
+                    <a href="{{ path('app_haie_crud_show', {'code': haie.code}) }}" class="btn btn-primary">show</a>
+                    <a href="{{ path('app_haie_crud_edit', {'code': haie.code}) }}" class="btn btn-danger">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
