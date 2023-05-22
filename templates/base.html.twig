@@ -29,8 +29,12 @@
       <li class="nav-item active">
         <a class="nav-link" href="{{path('app_acceuil')}}">Accueil</a>
       </li>
+      {% if is_granted('ROLE_USER') %}
       <li class="nav-item active">
-        <a class="nav-link" href="{{ path('app_mesure') }}">Devis</a>
+        <a class="nav-link" href="{{ path('app_mesure') }}">Créer un devis</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{{ path('app_vue_devis') }}">Consulter vos devis</a>
       </li>
       {% if is_granted('ROLE_ADMIN') %}
       <li class="nav-item active">
@@ -43,14 +47,12 @@
         <a class="nav-link" href="{{ path('app_devis_crud_index') }}">Afficher les devis</a>
       </li>
       {% endif %}
+      {% endif %}
       </ul>
       <ul class="navbar-nav ms-auto">
       {% if is_granted('ROLE_USER') %}
       <li class="nav-item active">
-        <a class="nav-link">
-        {{ app.user.nom }}
-        {{ app.user.prenom }}
-        </a>
+        <a class="nav-link" href="{{ path('app_user_crud_show',{'id': app.user.id}) }}" > {{ app.user.nom }} {{ app.user.prenom }}</a>
       </li>
       <li class="nav-item active">
         <a class="nav-link" href="{{ path('app_logout') }}">Deconnexion</a>
