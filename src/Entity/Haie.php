@@ -38,6 +38,13 @@ class Haie
         return $this->code;
     }
 
+    public function setCode(?string $code): self
+    {
+        $this->code = $code;
+
+        return $this;
+    }
+
     public function getNom(): ?string
     {
         return $this->nom;
