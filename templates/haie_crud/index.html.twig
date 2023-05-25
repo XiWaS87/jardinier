@@ -3,7 +3,7 @@
 {% block title %}Haie index{% endblock %}
 
 {% block content %}
-    <h1>Haie index</h1>
+    <h1>Liste des haies</h1>
 
     <table class="table table-striped">
         <thead>
@@ -21,8 +21,8 @@
                 <td>{{ haie.nom }}</td>
                 <td>{{ haie.prix }}</td>
                 <td>
-                    <a href="{{ path('app_haie_crud_show', {'code': haie.code}) }}" class="btn btn-primary">show</a>
-                    <a href="{{ path('app_haie_crud_edit', {'code': haie.code}) }}" class="btn btn-danger">edit</a>
+                    <a href="{{ path('app_haie_crud_show', {'code': haie.code}) }}" class="btn btn-primary">Voir</a>
+                    <a href="{{ path('app_haie_crud_edit', {'code': haie.code}) }}" class="btn btn-danger">editer</a>
                 </td>
             </tr>
         {% else %}

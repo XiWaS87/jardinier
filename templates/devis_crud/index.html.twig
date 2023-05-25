@@ -3,7 +3,7 @@
 {% block title %}Devis index{% endblock %}
 
 {% block content %}
-    <h1>Devis index</h1>
+    <h1>Liste des devis</h1>
 
     <table class="table">
         <thead>
@@ -27,7 +27,7 @@
                 <td>{{ devi.hauteur }}</td>
                 <td>{{ devi.longueur }}</td>
                 <td>
-                    <a href="{{ path('app_devis_crud_edit', {'id': devi.id}) }}">edit</a>
+                    <a href="{{ path('app_devis_crud_edit', {'id': devi.id}) }}">editer</a>
                 </td>
             </tr>
         {% else %}

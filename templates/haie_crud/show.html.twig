@@ -22,9 +22,9 @@
         </tbody>
     </table>
 
-    <a class="btn btn-primary" href="{{ path('app_haie_crud_index') }}">back to list</a>
+    <a class="btn btn-primary" href="{{ path('app_haie_crud_index') }}">Retour à la liste</a>
 
-    <a class="btn btn-primary" href="{{ path('app_haie_crud_edit', {'code': haie.code}) }}">edit</a>
+    <a class="btn btn-primary" href="{{ path('app_haie_crud_edit', {'code': haie.code}) }}">editer</a>
 
     {{ include('haie_crud/_delete_form.html.twig') }}
 {% endblock %}
